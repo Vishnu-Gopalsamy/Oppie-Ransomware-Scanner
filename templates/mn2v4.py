@@ -27,7 +27,7 @@ class NewFileHandler(FileSystemEventHandler):
                 writer.writerow([event.dest_path])
 if __name__ == '__main__':
     paths_to_monitor = [os.path.expanduser('~\\Downloads'), os.path.expanduser('~\\Documents')]
-    disks_to_monitor = ['F:\\', 'E:\\','G:\\']  # Replace with the desired disks
+    disks_to_monitor = ['D:\\', 'E:\\']  # Replace with the desired disks
 
     csvfile = 'buffer_filepath.csv'
     event_handler = NewFileHandler(csvfile)

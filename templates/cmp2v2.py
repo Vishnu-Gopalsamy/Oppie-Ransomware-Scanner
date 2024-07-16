@@ -33,7 +33,7 @@ def main():
             continue
 
         hashes = []
-        print("hashes found")
+        #print("hashes found")
         for file_path in df[0]:
             file_path = file_path.strip()
             if os.path.isfile(file_path):
@@ -55,11 +55,15 @@ def main():
 
         with open("hashes.csv", "r") as f:
             reader = csv.reader(f)
+            warning = open("Warning.txt","a")
             next(reader)  # Skip header row
             for row in reader:
                 file_path, md5, sha1, sha256 = row
                 if md5 in hashes_to_match or sha1 in hashes_to_match or sha256 in hashes_to_match:
                     print(f"Warning::Suspicious File:::path: {file_path}")
+                    warning.write(f"Warning::Suspicious File:::path: {file_path} \n")
+                    #need to add a file wirter here
+                    
 
         # Truncate the buffer_filepath.csv file
         with open("buffer_filepath.csv", "w", newline='') as f:

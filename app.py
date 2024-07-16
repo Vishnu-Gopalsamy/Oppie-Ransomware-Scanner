@@ -25,7 +25,7 @@ def yara():
 
 @app.route('/mal')
 def mal():
-    return render_template('hashes.csv')
+    return render_template('Warning.txt')
 
 @app.route('/urlindex')
 def urlpage():
