@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Input</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antivirus Scanner</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+
+        nav {
+            background: linear-gradient(to right, #990000, #660000);
+        }
+
+        .mx-auto {
+            margin: 0 auto;
+        }
+
+        .max-w-7xl {
+            max-width: 1280px;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .sm\:px-6 {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        .lg\:px-8 {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .h-16 {
+            height: 4rem;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .md\:block {
+            display: block;
+        }
+
+        .ml-10 {
+            margin-left: 2.5rem;
+        }
+
+        .space-x-4 > *:not(:last-child) {
+            margin-right: 1rem;
+        }
+
+        a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #dcdcdc;
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 4rem); /* Adjust height considering nav height */
+        }
+
+        .pc-safety-section {
+            background-color: #2b2b2b;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: #e60000;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #4d4d4d;
+            border-radius: 5px;
+            background-color: #3a3a3a;
+            color: #f0f0f0;
+        }
+
+        button {
+            background-color: #e60000;
+            color: #f0f0f0;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #cc0000;
+        }
+
+        pre {
+            background-color: #2b2b2b;
+            border: 1px solid #4d4d4d;
+            border-radius: 5px;
+            padding: 1rem;
+            color: #f0f0f0;
+            overflow: auto;
+            text-align: left;
+        }
+
+        .loader {
+            display: none;
+            border: 16px solid #f0f0f0;
+            border-radius: 50%;
+            border-top: 16px solid #e60000;
+            width: 80px;
+            height: 80px;
+            animation: spin 2s linear infinite;
+            margin: 1rem auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .result {
+            margin-top: 1rem;
+            font-size: 1.25rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            border: 1px solid #4d4d4d;
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4d4d4d;
+        }
+
+        td {
+            background-color: #3a3a3a;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="bg-gradient-to-r from-red-600 to-pink-700">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+            <div class="hidden md:block">
+                <div class="ml-10 flex items-baseline space-x-4">
+                    <a href="/" class="text-white font-medium text-lg hover:text-gray-200">Dashboard</a>
+                    <a href="/deepScan" class="text-white hover:text-gray-200">Deep Scan</a>
+                    <a href="/yara" class="text-white hover:text-gray-200">Custom Scan</a>
+                    <a href="/urlindex" class="text-white hover:text-gray-200">URL Scan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="main-content">
+    <div class="center">
+        <div class="pc-safety-section">
+            <h2>Deep Scan</h2>
+            <form id="stringInputForm">
+                <label for="inputText">Enter path (e.g., E:/Test/Hello):</label>
+                <input type="text" id="inputText" name="inputText" />
+                <button type="submit">Deep Scan</button>
+            </form>
+            <br>
+            <pre id="fileContent"></pre> <!-- Use <pre> tag for displaying formatted text -->
+
+            <div id="loadingSpinner" class="loader"></div> <!-- Loading spinner element -->
+            <p id="processingResult" class="result"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('stringInputForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const inputText = document.getElementById('inputText').value.trim();
+
+        if (!inputText) {
+            alert('Please enter text to process.');
+            return;
+        }
+
+        // Show loading spinner when form is submitted
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        loadingSpinner.style.display = 'block';
+
+        try {
+            const response = await fetch('/deepscan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ inputText })
+            });
+
+            const data = await response.json();
+
+            // Hide loading spinner after response is received
+            loadingSpinner.style.display = 'none';
+
+            // Display processing result or error message
+            const processingResultElement = document.getElementById('processingResult');
+            processingResultElement.innerText = data.result || 'Processing result unavailable';
+            openFile();
+        } catch (error) {
+            console.error('Error:', error);
+
+            // Hide loading spinner and display error message
+            loadingSpinner.style.display = 'none';
+            const processingResultElement = document.getElementById('processingResult');
+            processingResultElement.innerText = 'Error occurred during processing';
+        }
+    });
+
+    var filePath = "/deepScanResult"; // Adjust the file path as needed
+
+    function openFile() {
+        fetch(filePath)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Failed to load file: " + response.statusText);
+                }
+                return response.text();
+            })
+            .then((csvData) => {
+                // Parse CSV data
+                let rows = csvData.split('\n');
+                let table = '<table border="1">'; // Add border attribute to the table
+                rows.forEach(row => {
+                    let columns = row.split(',');
+                    if (columns.length === 2) {
+                        table += '<tr>';
+                        columns.forEach(column => {
+                            table += '<td style="border: 1px solid black;">' + column + '</td>'; // Add border style to each cell
+                        });
+                        table += '</tr>';
+                    }
+                });
+                table += '</table>';
+
+                // Display parsed data on the webpage
+                document.getElementById("fileContent").innerHTML = table;
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+</script>
+
+</body>
+</html>

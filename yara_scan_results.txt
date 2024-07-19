@@ -1,0 +1,73 @@
+maldoc_getEIP_method_1 D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\CryptoLocker.exe
+maldoc_find_kernel32_base_method_1 D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\CoronaVirus.exe
+maldoc_find_kernel32_base_method_1 D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\CryptoWall.exe
+maldoc_find_kernel32_base_method_1 D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\Locky.AZ.exe
+maldoc_indirect_function_call_3 D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\UIWIX.exe
+maldoc_find_kernel32_base_method_1 D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\UIWIX.exe
+maldoc_getEIP_method_1 D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\UIWIX.exe
+maldoc_find_kernel32_base_method_1 D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\7ev3n.exe
+maldoc_find_kernel32_base_method_1 D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\satan.exe
+maldoc_getEIP_method_1 D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\WinlockerVB6Blacksod.exe
+maldoc_find_kernel32_base_method_1 D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\Dharma.exe
+
+
+
+
+
+
+Petya_Ransomware D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\Petya.A.exe
+Ransom_Petya D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\Petya.A.exe
+Ransom_Satana_Dropper D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\Satana.exe
+WannaCry_Ransomware D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\WannaCry.exe
+DoublePulsarXor_Petya D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\NotPetya.exe
+DoublePulsarDllInjection_Petya D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\NotPetya.exe
+ransomware_PetrWrap D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\NotPetya.exe
+FE_CPE_MS17_010_RANSOMWARE D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\NotPetya.exe
+petya_eternalblue D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\NotPetya.exe
+cerber3 D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\Cerber5.exe
+WannaDecryptor D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\WannaCrypt0r.exe
+Wanna_Sample_84c82835a5d21bbcf75a61706d8ab549 D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\WannaCrypt0r.exe
+ransom_telefonica D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\WannaCrypt0r.exe
+Wanna_Cry_Ransomware_Generic D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\WannaCrypt0r.exe
+WannaCry_Ransomware D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\WannaCrypt0r.exe
+WannaCry_Ransomware_Dropper D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\WannaCrypt0r.exe
+wannacry_static_ransom D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\WannaCrypt0r.exe
+
+
+UPXv20MarkusLaszloReiser D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\Birele.exe
+UPXV200V290MarkusOberhumerLaszloMolnarJohnReiser D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\Birele.exe
+UPX290LZMAMarkusOberhumerLaszloMolnarJohnReiser D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\Birele.exe
+upx_3 D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\Birele.exe
+Stelth_PE_101_BGCorp D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\ViraLock.exe
+UPXv20MarkusLaszloReiser D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\Xyeta.exe
+UPXV200V290MarkusOberhumerLaszloMolnarJohnReiser D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\Xyeta.exe
+UPX20030XMarkusOberhumerLaszloMolnarJohnReiser D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\Xyeta.exe
+NETexecutableMicrosoft D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\Rensenware.exe
+NETexecutableMicrosoft D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\InfinityCrypt.exe
+GenerateTLSClientHelloPacket_Test D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\UIWIX.exe
+NETexecutableMicrosoft D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\$uckyLocker.exe
+GenerateTLSClientHelloPacket_Test D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\PetrWrap
+UPXV200V290MarkusOberhumerLaszloMolnarJohnReiser D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\RedBoot.exe
+GenerateTLSClientHelloPacket_Test D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\CoronaVirus.exe
+NETexecutableMicrosoft D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\DeriaLock.exe
+NETexecutableMicrosoft D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\RedEye.exe
+
+
+
+
+Win32_Ransomware_CryptoLocker D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\CryptoLocker.exe
+Win32_Ransomware_CryptoWall D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\CryptoWall.exe
+
+
+
+
+Win32_Ransomware_NotPetya D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\NotPetya.exe
+Win32_Ransomware_Spora D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\SporaRansomware.exe
+
+
+Win32_Ransomware_WannaCry D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\WannaCry.exe
+Win32_Ransomware_WannaCry D:\CS\hackathon\rrtool\dist\dist\The-MALWARE-Repo-master\Ransomware\WannaCrypt0r.exe
+
+
+
+

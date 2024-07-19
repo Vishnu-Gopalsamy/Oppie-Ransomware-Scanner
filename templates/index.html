@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="h-full bg-gray-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <style>
+      body {
+        background-color: #0f0a0a;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .min-h-full {
+        min-height: 100vh;
+      }
+      nav {
+        background: linear-gradient(to right, #e60000, #ff3366);
+        padding: 1rem;
+      }
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .nav-logo img {
+        height: 40px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: color 0.3s;
+      }
+      .nav-links a:hover {
+        color: #cccccc;
+      }
+      header {
+        background: linear-gradient(to right, #e60000, #ff3366);
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      header h1 {
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 0;
+        text-align: center;
+      }
+      main {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      .card-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      @media(min-width: 768px) {
+        .card-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      .card {
+        background-color: #333;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .card h2 {
+        color: #e60000;
+        font-size: 2rem;
+        margin: 0;
+      }
+      .card p {
+        color: #ccc;
+        font-size: 1rem;
+      }
+      .security-alerts {
+        background-color: #333;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .security-alerts h2 {
+        color: #ccc;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .alert-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .alert-table th, .alert-table td {
+        padding: 0.5rem;
+        border: 1px solid #555;
+        color: #ccc;
+      }
+      .alert-table th {
+        background-color: #444;
+      }
+      .alert-table tr:nth-child(even) {
+        background-color: #222;
+      }
+    </style>
+  </head>
+
+  <body class="">
+    <div class="min-h-full">
+      <nav>
+        <div class="nav-container">
+          <div class="nav-logo">
+            
+            <img src="{{ url_for('static', filename='images/op.png') }}" alt="Your Image">
+          </div>
+          <div class="nav-links">
+            <a href="/">Dashboard</a>
+            <a href="/deepScan">Deep Scan</a>
+            <a href="/yara">Custom Scan</a>
+            <a href="/urlindex">URL Scan</a>
+          </div>
+        </div>
+      </nav>
+      <header>
+        <div class="header-container">
+          <h1>Oppie Malware Scanner</h1>
+        </div>
+      </header>
+      <main>
+        <div class="card-grid">
+          <div class="card">
+            <h2 id="totalScans"></h2>
+            <p>Total Scans Completed</p>
+          </div>
+          <div class="card">
+            <h2 id="output"></h2>
+            <p>Number of Malicious Files Found</p>
+          </div>
+          <div class="card">
+            <h2></h2>
+            <p>Last Scan Details</p>
+          </div>
+          <div class="card">
+            <h2></h2>
+            <p>Threat Detection</p>
+            <p id="statusOutput"></p>
+          </div>
+        </div>
+        <div class="security-alerts">
+          <h2>Security Alerts</h2>
+          <div class="overflow-x-auto" id="alertTable">
+            <!-- Dynamic table content will be inserted here -->
+          </div>
+          <pre style="color: #fff" id="fileContent"></pre>
+        </div>
+      </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      // Function to fetch security alerts from the API endpoint and update the table
+      function fetchSecurityAlerts() {
+        fetch("backend/security-alerts") // Replace 'backend/security-alerts' with the actual API endpoint
+          .then((response) => response.json())
+          .then((data) => {
+            const alertTable = document.getElementById("alertTable");
+            alertTable.innerHTML = ""; // Clear previous table content
+            const alerts = data.alerts; // Assuming the API response contains an 'alerts' array
+            alerts.forEach((alert) => {
+              const row = document.createElement("tr");
+              row.innerHTML = `
+                <td>${alert.time}</td>
+                <td>${alert.fileName}</td>
+                <td>${alert.fileLocation}</td>
+                <td>${alert.techniques}</td>
+                <td>${alert.tactics}</td>
+                <td>${alert.description}</td>
+                <td>${alert.level}</td>
+                <td>${alert.ruleID}</td>
+              `;
+              alertTable.appendChild(row);
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching security alerts:", error);
+          });
+      }
+
+      var filePath = "/mal";
+      var rowCount = 0;
+
+      function openFile() {
+        fetch(filePath)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to load file: " + response.statusText);
+            }
+            return response.text();
+          })
+          .then((csvData) => {
+            let rows = csvData.split('\n');
+            let columnData = [];
+            rowCount = rows.length - 1;
+            document.getElementById("output").innerText = rowCount;
+
+            rows.forEach(row => {
+              let columns = row.split(',');
+              if (columns.length >= 1) { // Ensure there is at least one column
+                columnData.push(columns[0]); // Add only the first column to the array
+              }
+            });
+
+            document.getElementById("fileContent").textContent = columnData.join('\n');
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
+      
+      openFile();
+      setInterval(openFile, 3000);
+    </script>
+  </body>
+</html>

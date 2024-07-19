@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Antivirus Scanner</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Global styles */
+        body {
+            background-color: #de3428; /* Red background */
+            color: #ffffff; /* White text */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navigation styles */
+        nav {
+            background: linear-gradient(to right, #de3428, #000000); /* Gradient from red to black */
+            padding: 10px 20px;
+        }
+
+        nav img {
+            height: 40px;
+            width: 40px;
+            vertical-align: middle;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            margin-right: 20px;
+        }
+
+        nav a:hover {
+            color: #cccccc;
+        }
+
+        /* Form and content styles */
+        .main-content {
+            padding: 20px;
+        }
+
+        .pc-safety-section {
+            background-color: #000000; /* Black background */
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .pc-safety-section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ffffff; /* White border */
+            border-radius: 4px;
+            color: #000000; /* Black text */
+        }
+
+        button[type="submit"], button {
+            background-color: #de3428; /* Red background */
+            color: #ffffff;
+            border: 1px solid #ffffff; /* White border */
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        button[type="submit"]:hover, button:hover {
+            background-color: #a52a23; /* Darker red on hover */
+        }
+
+        .loader {
+            border: 4px solid #ffffff; /* White border */
+            border-top: 4px solid #000000; /* Black border */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .result {
+            margin-top: 10px;
+        }
+
+        #fileContent {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ffffff; /* White borders */
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        
+        <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+                <a href="/" class="text-white font-medium text-lg hover:text-gray-200">Dashboard</a>
+                <a href="/deepScan" class="text-white hover:text-gray-200">Deep Scan</a>
+                <a href="/yara" class="text-white hover:text-gray-200">Custom Scan</a>
+                <a href="/urlindex" class="text-white hover:text-gray-200">URL Scan</a>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+
+<div class="container main-content">
+    <div class="pc-safety-section">
+        <h2>Enter the file path to scan</h2>
+        <form id="stringInputForm">
+            <label for="inputText">Enter path (e.g., E:/Test/Hello):</label>
+            <input type="text" id="inputText" name="inputText" />
+            <button type="submit">Custom Scan</button>
+        </form>
+        <div id="loadingSpinner" class="loader"></div> <!-- Loading spinner element -->
+        <p id="processingResult" class="result"></p>
+
+        <button onclick="openFile()">Open File</button>
+        <div id="fileContent"></div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('stringInputForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const inputText = document.getElementById('inputText').value.trim();
+
+        if (!inputText) {
+            alert('Please enter text to process.');
+            return;
+        }
+
+        // Show loading spinner when form is submitted
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        loadingSpinner.style.display = 'block';
+
+        try {
+            const response = await fetch('/process', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ inputText })
+            });
+
+            const data = await response.json();
+
+            // Hide loading spinner after response is received
+            loadingSpinner.style.display = 'none';
+
+            // Display processing result or error message
+            const processingResultElement = document.getElementById('processingResult');
+            processingResultElement.innerText = data.result || 'Processing result unavailable';
+
+            openFile(); // Call openFile to load data after processing
+
+        } catch (error) {
+            console.error('Error:', error);
+
+            // Hide loading spinner and display error message
+            loadingSpinner.style.display = 'none';
+            const processingResultElement = document.getElementById('processingResult');
+            processingResultElement.innerText = 'Error occurred during processing';
+        }
+    });
+
+    function openFile() {
+        const filePath = '/yaraReport'; // Adjust the file path as needed
+
+        fetch(filePath)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Failed to load file: " + response.statusText);
+                }
+                return response.text();
+            })
+            .then((csvData) => {
+                // Parse CSV data
+                let rows = csvData.split('\n');
+                let table = '<table border="1">'; // Add border attribute to the table
+
+                rows.forEach(row => {
+                    let columns = row.split(',');
+                    if (columns.length > 0) {
+                        table += '<tr>';
+                        table += '<td style="border: 1px solid #ffffff;">' + columns[0].trim() + '</td>'; // First value in the first column
+
+                        if (columns.length > 1) {
+                            table += '<td style="border: 1px solid #ffffff;">'; // Second column
+                            for (let i = 1; i < columns.length; i++) {
+                                table += columns[i].trim();
+                                if (i < columns.length - 1) {
+                                    table += '<br>'; // Add line break if there are more values
+                                }
+                            }
+                            table += '</td>';
+                        } else {
+                            table += '<td style="border: 1px solid #ffffff;"></td>'; // Empty second column if there's only one value
+                        }
+
+                        table += '</tr>';
+                    }
+                });
+
+                table += '</table>';
+
+                // Display parsed data on the webpage
+                document.getElementById("fileContent").innerHTML = table;
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+</script>
+
+</body>
+</html>

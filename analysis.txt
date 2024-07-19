@@ -1,0 +1,103 @@
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\CryptoWall.exe
+Rule: Win32_Ransomware_CryptoWall 
+maldoc_find_kernel32_base_method_1 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\CryptoLocker.exe
+Rule: Win32_Ransomware_CryptoLocker 
+maldoc_getEIP_method_1 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\Locky.AZ.exe
+Rule: maldoc_find_kernel32_base_method_1 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\satan.exe
+Rule: maldoc_find_kernel32_base_method_1 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\UIWIX.exe
+Rule: GenerateTLSClientHelloPacket_Test 
+maldoc_find_kernel32_base_method_1 
+maldoc_getEIP_method_1 
+maldoc_indirect_function_call_3 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\7ev3n.exe
+Rule: maldoc_find_kernel32_base_method_1 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\CoronaVirus.exe
+Rule: GenerateTLSClientHelloPacket_Test 
+maldoc_find_kernel32_base_method_1 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\WinlockerVB6Blacksod.exe
+Rule: maldoc_getEIP_method_1 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\Dharma.exe
+Rule: maldoc_find_kernel32_base_method_1 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\Satana.exe
+Rule: Ransom_Satana_Dropper 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\WannaCry.exe
+Rule: WannaCry_Ransomware 
+Win32_Ransomware_WannaCry 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\Petya.A.exe
+Rule: Petya_Ransomware 
+Ransom_Petya 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\NotPetya.exe
+Rule: DoublePulsarDllInjection_Petya 
+DoublePulsarXor_Petya 
+FE_CPE_MS17_010_RANSOMWARE 
+Win32_Ransomware_NotPetya 
+petya_eternalblue 
+ransomware_PetrWrap 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\Cerber5.exe
+Rule: cerber3 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\WannaCrypt0r.exe
+Rule: WannaCry_Ransomware 
+WannaCry_Ransomware_Dropper 
+WannaDecryptor 
+Wanna_Cry_Ransomware_Generic 
+Wanna_Sample_84c82835a5d21bbcf75a61706d8ab549 
+Win32_Ransomware_WannaCry 
+ransom_telefonica 
+wannacry_static_ransom 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\Birele.exe
+Rule: UPX290LZMAMarkusOberhumerLaszloMolnarJohnReiser 
+UPXV200V290MarkusOberhumerLaszloMolnarJohnReiser 
+UPXv20MarkusLaszloReiser 
+upx_3 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\Rensenware.exe
+Rule: NETexecutableMicrosoft 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\Xyeta.exe
+Rule: UPX20030XMarkusOberhumerLaszloMolnarJohnReiser 
+UPXV200V290MarkusOberhumerLaszloMolnarJohnReiser 
+UPXv20MarkusLaszloReiser 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\InfinityCrypt.exe
+Rule: NETexecutableMicrosoft 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\ViraLock.exe
+Rule: Stelth_PE_101_BGCorp 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\$uckyLocker.exe
+Rule: NETexecutableMicrosoft 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\PetrWrap
+Rule: GenerateTLSClientHelloPacket_Test 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\RedBoot.exe
+Rule: UPXV200V290MarkusOberhumerLaszloMolnarJohnReiser 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\DeriaLock.exe
+Rule: NETexecutableMicrosoft 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\RedEye.exe
+Rule: NETexecutableMicrosoft 
+
+Ransomware: E:\rrtool\dist\The-MALWARE-Repo-master\Ransomware\SporaRansomware.exe
+Rule: Win32_Ransomware_Spora 
+
