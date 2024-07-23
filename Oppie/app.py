@@ -65,7 +65,7 @@ def process_path():
         print(inputTextValue)
 
         # Execute scanner.py with the input path as command-line argument
-        result = subprocess.run(['python', 'test5.py', inputTextValue], capture_output=True, text=True)
+        result = subprocess.run(['python', 'PythonAutomatedYara.py', inputTextValue], capture_output=True, text=True)
         print(result)
         if result.returncode == 0:
             # Process the scanner output

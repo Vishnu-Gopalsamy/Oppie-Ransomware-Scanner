@@ -21,7 +21,7 @@ def generate_hash(file_path, hash_type='md5'):
 
 def main():
     while True:
-        file_path = "buffer_filepath.csv"
+        file_path = "templates/buffer_filepath.csv"
         if os.path.getsize(file_path) == 0:
             #print("buffer_filepath.csv is empty, skipping this iteration...")
             time.sleep(3)
@@ -33,7 +33,7 @@ def main():
             continue
 
         hashes = []
-        print("hashes found")
+        #print("hashes found")
         for file_path in df[0]:
             file_path = file_path.strip()
             if os.path.isfile(file_path):
@@ -44,25 +44,29 @@ def main():
             else:
                 print(f"File not found: {file_path}")
 
-        with open("hashes.csv", "w", newline='') as f:
+        with open("templates/hashes.csv", "w", newline='') as f:
             writer = csv.writer(f)
             writer.writerow(["file_path", "md5", "sha1", "sha256"])
             writer.writerows(hashes)
 
-        with open("MalHash.csv", "r") as f:
+        with open("templates/MalHash.csv", "r") as f:
             reader = csv.reader(f)
             hashes_to_match = [row[0] for row in reader]
 
-        with open("hashes.csv", "r") as f:
+        with open("templates/hashes.csv", "r") as f:
             reader = csv.reader(f)
+            warning = open("Warning.txt","a")
             next(reader)  # Skip header row
             for row in reader:
                 file_path, md5, sha1, sha256 = row
                 if md5 in hashes_to_match or sha1 in hashes_to_match or sha256 in hashes_to_match:
                     print(f"Warning::Suspicious File:::path: {file_path}")
+                    warning.write(f"Warning::Suspicious File:::path: {file_path} \n")
+                    #need to add a file wirter here
+                    
 
         # Truncate the buffer_filepath.csv file
-        with open("buffer_filepath.csv", "w", newline='') as f:
+        with open("templates/buffer_filepath.csv", "w", newline='') as f:
             pass
 
         # Wait for 3 seconds before reading the buffer_filepath.csv file again
