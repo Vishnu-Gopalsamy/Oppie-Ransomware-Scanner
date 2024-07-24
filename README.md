@@ -1,6 +1,6 @@
 # Oppie : Ransomware Scanner
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
-![VirusTotal](https://img.shields.io/badge/VirusTotal-Integrated-green)
+
 ## Table of Contents
 1. [Description](#description)
 2. [Key Features](#key-features)
