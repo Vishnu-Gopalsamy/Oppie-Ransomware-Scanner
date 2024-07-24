@@ -13,24 +13,23 @@
 **Oppie** is a sophisticated ransomware scanner hosted on a Flask server, offering four layers of protection: real-time scanning with Python Watchdog for immediate threat detection, custom scanning using Yara rules for tailored threat identification, deep scanning based on hash values for thorough examination, and URL scanning via the VirusTotal API to ensure safe web interactions. This multi-faceted approach ensures comprehensive security against ransomware threats.
 
 ## Key Features
+**Real-Time Scanning**: Monitors file system changes in real time using Python Watchdog, providing immediate detection and response to potential ransomware threat.
 
-1. **Real-Time Scanning**: Monitors file system changes in real time using Python Watchdog, providing immediate detection and response to potential ransomware threats.
-2. 
    ![image](https://github.com/user-attachments/assets/beaca05d-55ec-4b43-a541-33ed818a60c5)
    
-4. **Deep File Analysis**: Performs in-depth scans by checking file hash values against known malicious hashes, offering a thorough examination of files for hidden threats.
-5. 
+   **Deep File Analysis**: Performs in-depth scans by checking file hash values against known malicious hashes, offering a thorough examination of files for hidden threats.
+   
    ![image](https://github.com/user-attachments/assets/9de522bc-1e1a-4581-81ad-2b1aed674bae)
    
-7. Custom Scanning: Utilizes Yara rules to perform tailored scans for detecting specific patterns and behaviors associated with ransomware, allowing for customized threat detection.
-8. 
+ Custom Scanning: Utilizes Yara rules to perform tailored scans for detecting specific patterns and behaviors associated with ransomware, allowing for customized threat detection. 
+ 
    ![image](https://github.com/user-attachments/assets/107a8de3-8ffa-4d7a-8283-3c74889a75c8)
    
-10. **URL Scanning**: Integrates with the VirusTotal API to analyze URLs for potential security risks, ensuring that web-based content is free from ransomware and other malicious threats.
-11. 
+ **URL Scanning**: Integrates with the VirusTotal API to analyze URLs for potential security risks, ensuring that web-based content is free from ransomware and other malicious threats.
+
    ![image](https://github.com/user-attachments/assets/4d04fd64-0cf4-4e15-bb00-c7acfd316418)
 
-13. **Flask-Based Interface**: Hosted on a Flask server, providing a user-friendly web interface for managing scans and viewing results, with easy access through a web browser.
+ **Flask-Based Interface**: Hosted on a Flask server, providing a user-friendly web interface for managing scans and viewing results, with easy access through a web browser.
  
 ## Installation
 
