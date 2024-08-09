@@ -78,7 +78,7 @@ This project is licensed under the Apache License, Version 2.0. See the [LICENSE
 
 - [Saran](https://www.linkedin.com/in/saran-r-k-0688b631b/)
 
-- [Vishnu G]()
+- [Vishnu G](https://www.linkedin.com/in/vishnu-g-13696931b?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BmWohIHpFR1utOM3ebqpZlw%3D%3D)
 
 
 
