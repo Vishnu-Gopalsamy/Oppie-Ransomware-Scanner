@@ -61,7 +61,7 @@ python mn2v4.py
 ```
 and open another terminal and run the following command
 ```bash
-python cmp2v2
+python cmp2v2.py
 ```
 [Now everything works perfectly!!!]
 ## License
