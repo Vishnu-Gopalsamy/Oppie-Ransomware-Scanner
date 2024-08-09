@@ -43,9 +43,42 @@
 3. **Disable Anti-Virus**: Temporarily disable any anti-virus services to ensure uninterrupted scanning.
 
 ## Usage
+**Step 1:** Clone this Repository locally at your desired folder
+```bash
+git clone "https://github.com/Vishnudharan24/Oppie-Ransomware-Scanner"
+```
+**Step 2:** Open the folder in the terminal and run the following command:
+```bash
+python app.py
+```
+**Step 3:** Now there will be port address to run our tool locally. Copy that port address and run in using your desired brower.
+or press ctrl and click the port link.
+[Note: Now you can run everything except Real time scanning using python Watchdog]
 
+**Step 4:** To run Real-time scanning run the following command in the (new) terminal:
+```bash
+python mn2v4.py
+```
+and open another terminal and run the following command
+```bash
+python cmp2v2
+```
+[Now everything works perfectly!!!]
 ## License
 
-## Contact 
+This project is licensed under the Apache License, Version 2.0. See the [LICENSE](./LICENSE) file for more information.
+
+## Contributers 
+
+**Santhosh**
+- [LinkedIn](https://www.linkedin.com/in/santhosh-r-43a161227/)
+**Vishnudharan**
+- [LinkedIn](https://www.linkedin.com/in/vishnudharan-baskar/)
+**Shalini**
+- [LinkedIn](https://www.linkedin.com/in/shalini-gr-7131a0291/)
+**Saran**
+- [LinkedIn](https://www.linkedin.com/in/saran-r-k-0688b631b/)
+**Vishnu G**
+-[LinkedIn]()
 
 
