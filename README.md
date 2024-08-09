@@ -51,7 +51,7 @@ git clone https://github.com/Vishnudharan24/Oppie-Ransomware-Scanner
 ```bash
 python app.py
 ```
-**Step 3:** Now there will be port address to run our tool locally. Copy that port address and run in using your desired brower.
+**Step 3:** Now there will be port address to run our tool locally. Copy that port address and run it using your desired browser,
 or press ctrl and click the port link.
 [Note: Now you can run everything except Real time scanning using python Watchdog]
 
