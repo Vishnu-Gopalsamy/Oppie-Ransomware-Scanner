@@ -45,7 +45,7 @@
 ## Usage
 **Step 1:** Clone this Repository locally at your desired folder
 ```bash
-git clone "https://github.com/Vishnudharan24/Oppie-Ransomware-Scanner"
+git clone https://github.com/Vishnudharan24/Oppie-Ransomware-Scanner
 ```
 **Step 2:** Open the folder in the terminal and run the following command:
 ```bash
